@@ -79,11 +79,7 @@ app.get( '/api', function( request, response ) {
 //Insert a new  portfolio item
 app.post( '/api/authenticate', function( request, response ) {
     console.log( '/api/authenticate called' );
-    var un = request.body.username;
-    var pw = request.body.password;
-    // Temporar...
-    var success = (un === "admin" && pw === "admin") ? true : false;
-    return response.send( success );
+    return false;
 });
 
 /*********************************************************
