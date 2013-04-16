@@ -1,0 +1,32 @@
+<div id="wrapper" ng-cloak class="ng-cloak">
+    <div class="row-fluid">
+        <div class="posts span8">
+            <!-- start: Main -->
+            <div class="post first">
+                <ng-switch on="grid">
+                    <div ng-switch-when="1">
+                        <div work-admin-grid></div>
+                    </div>
+                    <div ng-switch-when="2">
+                        <div portfolio-admin-grid></div>
+                    </div>
+                </ng-switch>
+            </div>
+            <!-- end: Main -->
+        </div>
+        <!-- start: Sidebar -->
+        <div class="sidebar span4 hidden-phone">
+            <!-- start: Sub Nav -->
+            <div class="widget first">
+                <div sub-nav current="grid"></div>
+            </div>
+            <!-- end: Sub Nav -->
+        </div>
+        <!-- end: Sidebar -->
+    </div>
+</div>
+
+
+
+
+

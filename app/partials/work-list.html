@@ -1,0 +1,57 @@
+<div id="wrapper">
+    <div class="row-fluid">
+        <!-- start: Main Column -->
+        <div class="posts span8">
+            <!-- start: Work History List -->
+            <ul class="workList">
+                <li class="post" ng-repeat="item in work | filter:query | orderBy:orderProp:true" >
+                    <div class=" workheader">
+                        <img class="img-polaroid workLogo" ng-src="{{item.logo}}"></image>
+                        <p class="workTitle"><a href="{{item.clientLink}}" target="_blank">{{item.client}}</a></p>
+                        <p class="workDate">{{item | formatDate}}</p>
+                        <p class="workRole">{{item.role}}</p>
+                        <p class="workType">{{item.type}}</p>
+                    </div>
+                    <div class="workBody" ng-bind-html-unsafe="item.body"></div>
+                </li>
+            </ul>
+            <!-- end: Work History List -->
+        </div>
+        <!-- end: Main Column -->
+        <!-- start: Sidebar Column -->
+        <div class="sidebar span4">
+            <!-- start: History Widget -->
+            <div class="widget first">
+                <div class="title"><h3>History</h3></div>
+                <div ng-bind-html-unsafe="about.historyBody"></div>
+            </div>
+            <!-- end: History Widget -->
+            <!-- start: History Slider -->
+            <div class="widget">
+                <ul class="progress-bar" ng-repeat="item in about.history">
+                    <li>
+                        <h5>{{item.label}} ( {{item.value}} years )</h5>
+                    </li>
+                    <li class="progressOverlay">
+                        <div class="meter"><span ng-style="getPercentageStyle(item)"></span></div>
+                    </li>
+                </ul>
+            </div>
+            <!-- end: History Slider -->
+            <!-- start: History Text -->
+            <div class="widget last">
+                <ul>
+                    <li ng-repeat="item in about.history | haveAttribute:'body' ">
+                        <h5>{{item.label}}</h5>
+                        <p>{{item.body}}</p>
+                    </li>
+
+                </ul>
+            </div>
+            <!-- end: History Text -->
+        </div>
+        <!-- end: Sidebar Column -->
+    </div>
+</div>
+
+

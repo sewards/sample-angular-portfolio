@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en" xmlns:ng="http://angularjs.org" >
+	<head>
+		<title>Shane Seward</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--[if lt IE 10]>
+        <script type="text/javascript">
+            window.location = "/unsupported.html";
+        </script>
+        <![endif]-->
+		<script data-main="/app/js/main" src="/app/js/lib/require/require.js"></script>
+        <!-- start: CSS -->
+        <link rel="stylesheet" href="/app/css/angular-ui.css">
+        <link rel="stylesheet" href="/app/css/ng-grid.css">
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700">
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Serif">
+        <link href="/app/css/bootstrap.css" rel="stylesheet" type="text/css">
+        <link href="/app/css/bootstrap-responsive.css" rel="stylesheet" type="text/css">
+        <link href="/app/css/style.css" rel="stylesheet" type="text/css">
+	</head>
+    <body ng-controller="AppCtrl" page-resize>
+    <!--start: Header -->
+    <header class="header">
+        <!--start: Container -->
+        <div class="container separate">
+            <!--start: Navigation -->
+            <a href="/"><img class="logosImg" src="app/img/logos.png"/></a>
+            <div class="navbar navbar-inverse" >
+                <div class="navbar-inner">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="/">Shane Seward</a>
+
+                    <div class="nav-collapse collapse ng-cloak" ng-class="{hidden:!navigationLoaded}">
+                        <ul class="nav">
+                            <li ng-repeat="item in navigation" ng-class="{active:item.selected}">
+                                <a href="{{item.link}}">{{item.label}}</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+            <!--end: Navigation -->
+        </div>
+        <!--end: Container-->
+    </header>
+    <!--end: Header -->
+    <div class="main-container container">
+        <!-- start: Page Title -->
+        <div class="ng-cloak" id="page-title">
+            <h2>{{pagetitle}}</h2>
+        </div>
+        <!-- end: Page Title -->
+        <!--start: Dynamic View -->
+        <div class="main-view" ng-view></div>
+        <!--end: Dynamic View -->
+    </div>
+    <!-- start: Footer -->
+    <div id="footer">
+        <!-- start: Container -->
+        <div class="container">
+            <!-- start: Row -->
+            <div class="row-fluid">
+                <!-- start: About -->
+                <div class="span9">
+                    <p>
+                        <i class="fa-icon-map-marker"></i> West Sussex
+                    </p>
+                    <p>
+                        <i class="fa-icon-map-marker"></i> UK
+                    </p>
+                    <p>
+                        <i class="fa-icon-phone"></i> Phone: 07525 661417
+                    </p>
+                    <p>
+                        <i class="fa-icon-envelope"></i> Email: shane@shaneseward.co.uk
+                    </p>
+                    <p>
+                        <i class="fa-icon-globe"></i> Web: www.shaneseward.co.uk
+                    </p>
+                </div>
+                <!-- end: About -->
+                <!-- start: LinkedIn -->
+                <div class="span3 textRight">
+                    <span class="linkedInSpan"><a href="http://uk.linkedin.com/pub/shane-seward/35/3/7b0" target="_blank">Join my LinkedIn network</a> </span><a href="http://uk.linkedin.com/pub/shane-seward/35/3/7b0" target="_blank" class="social-linkedin"></a>
+                </div>
+                <!-- end: LinkedIn -->
+            </div>
+            <!-- end: Row -->
+        </div>
+        <!-- end: Container  -->
+    </div>
+    <!-- end: Footer -->
+    <!-- start: Under Footer -->
+    <div id="under-footer">
+        <!-- start: Container -->
+        <div class="container">
+            <!-- start: Row -->
+            <div class="row-fluid">
+                <!-- start: Under Footer Logo -->
+                <div class="span2">
+                    <div id="under-footer-logo">
+                        <a class="brand" href="#">Shane Seward</a>
+                    </div>
+                </div>
+                <!-- end: Under Footer Logo -->
+                <!-- start: Under Footer Copyright -->
+                <div class="span9">
+                    <div id="under-footer-copyright">
+                        &copy; 2013, Nriched Ltd
+                    </div>
+                </div>
+                <!-- end: Under Footer Copyright -->
+                <!-- start: Under Footer Back To Top -->
+                <div class="span1">
+                    <div id="under-footer-back-to-top">
+                        <a href="#" back-to-top></a>
+                    </div>
+                </div>
+                <!-- end: Under Footer Back To Top -->
+            </div>
+            <!-- end: Row -->
+        </div>
+        <!-- end: Container  -->
+    </div>
+    </body>
+</html>

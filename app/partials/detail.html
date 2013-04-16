@@ -1,0 +1,68 @@
+<div id="wrapper" ng-cloak class="ng-cloak">
+    <div class="row-fluid">
+        <div class="posts span8">
+            <!-- start: Main -->
+            <div class="post last">
+                <div class="picture">
+                    <a href="#"><img ng-src="/app/img/work/{{imageId}}_l.jpg" alt="" /></a>
+                </div>
+                <div class="info">
+                    <img class="post-logo" ng-src="{{portfolioItem | formatLogo}}" >
+                </div>
+                <div class="post-content">
+                    <div class="post-title">
+                        <h2>{{portfolioItem.title}}</h2>
+                    </div>
+                    <div class="meta row-fluid post-meta">
+                        <div>
+                            <div><i class="fa-icon-user"></i>  {{portfolioItem.client}}</div>
+                            <div><i class="fa-icon-calendar"></i>  {{portfolioItem | formatDate}}</div>
+                        </div>
+
+                        <ul>
+                            <li class="awardItem" ng-repeat="award in portfolioItem.awards ">
+                                <div><i class="fa-icon-star"></i>{{award}}</div>
+                            </li>
+                        </ul>
+                    </div>
+                    <hr/>
+                    <div class="post-description">
+                        <div ng-bind-html-unsafe="portfolioItem.body"></div>
+                        <div class="moreLink">
+                            <a class="post-entry" href="#" ng-click="return(); $event.preventDefault();">Return to...</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end: Main -->
+        </div>
+        <!-- start: Sidebar -->
+        <div class="sidebar span4 hidden-phone">
+            <!-- start: Text Widget -->
+            <div class="widget first">
+                <div class="title"><h3>Images</h3></div>
+                <p>Select from the following screen grabs..</p>
+                <ul class="thumbnails">
+                    <li ng-repeat="thumb in thumbs" ng-class="{active:thumb.selected}" >
+                        <div class="thumbnail" >
+                            <a href="#" ng-click="selectThumb(thumb); $event.preventDefault();"><img ng-src="/app/img/work/{{thumb.imageId}}_s.jpg" class="active"></a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- end: Text Widget -->
+            <!-- start: Video Widget -->
+            <div class="widget" ng-show="showVideo" >
+                <div class="title"><h3>Video</h3></div>
+                <p>View animation and transitions in the following clip..</p>
+                <div class="flex-video widescreen">
+                    <iframe ng-src="{{portfolioItem.video}}" width="480" height="256" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+                </div>
+            </div>
+            <!-- end: Tags -->
+        </div>
+        <!-- end: Sidebar -->
+    </div>
+</div>
+
+

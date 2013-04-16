@@ -1,0 +1,76 @@
+<div id="wrapper" ng-cloak class="ng-cloak">
+    <div class="row-fluid">
+        <!-- start: Main Column-->
+        <div class="posts span8">
+            <!-- start: Profile Content -->
+            <div id="about" class="post first" ng-class="{hidden:!aboutLoaded}">
+                <h3>{{about.profileLabel}}</h3>
+                <div>
+                    <img class="profileImg" src="{{about.profileImg}}" />
+                    <div ng-bind-html-unsafe="about.profileBody"></div>
+                </div>
+            </div>
+            <!-- end: Profile Content -->
+            <!-- start: Work History List -->
+            <div id="work" class="post last" ng-class="{hidden:!workLoaded}">
+                <h3>{{about.historyLabel}}</h3>
+                <ul class="workList">
+                    <li ng-repeat="item in work | orderBy:workOrderProp:true" >
+                        <img class="img-polaroid workLogo" ng-src="{{item.logo}}"></image>
+                        <p><a href="{{item.clientLink}}" target="_blank"><strong>{{item.client}}</strong></a></p>
+                        <p>{{item | formatDate}}</p>
+                        <p>{{item.role}}</p>
+                        <p>{{item.type}}</p>
+                        <div class="workBody" ng-bind-html-unsafe="item.body"></div>
+                    </li>
+                </ul>
+            </div>
+            <!-- end: Work History List -->
+        </div>
+        <!-- end: Main Column-->
+        <!-- start: Side Column-->
+        <div class="sidebar span4 hidden-phone">
+            <!-- start: Awards widget-->
+            <div class="widget first" ng-class="{hidden:!portfolioLoaded}">
+                <h3>{{about.awardsLabel}}</h3>
+                <div ng-bind-html-unsafe="about.awardsBody"></div>
+                <ul class="aboutAwardList">
+                    <li  ng-repeat="item in portfolio | orderBy:orderProp:true | haveAttribute:'awards'" >
+                        <a href="#" ng-click="launchDetail(item); $event.preventDefault();"><img class="img-polaroid aboutAwardImg" ng-src="app/img/work/{{item.image[0]}}_s.jpg"></image></a>
+                        <a href="#" ng-click="detail(item); $event.preventDefault();"><strong>{{item.title}}</strong></a>
+                        <div>{{item | formatDate}}</div>
+                    </li>
+                </ul>
+            </div>
+            <!-- end: Awards Slider-->
+            <!-- start: Experience Slider-->
+            <div class="widget" ng-class="{hidden:!aboutLoaded}">
+                <h3>{{about.skillsLabel}}</h3>
+
+                <ul class="progress-bar" ng-repeat="item in about.skills">
+                    <li>
+                        <h5>{{item.label}} ( {{item.value}} years commercial )</h5>
+                        <p>{{item.body}}</p>
+                    </li>
+                    <div progress-item percentage="{{item.percentage}}"></div>
+                </ul>
+
+            </div>
+            <!-- end: Experience Slider-->
+            <!-- start: History Slider -->
+            <div class="widget last" ng-class="{hidden:!aboutLoaded}">
+                <h3>{{about.experienceLabel}}</h3>
+                <ul class="progress-bar" ng-repeat="item in about.experience">
+                    <li>
+                        <h5>{{item.label}} ( {{item.value}} years )</h5>
+                        <p>{{item.body}}</p>
+                    </li>
+                    <div progress-item percentage="{{item.percentage}}"></div>
+
+                </ul>
+            </div>
+            <!-- end: History Slider -->
+        </div>
+        <!-- end: Side Column-->
+    </div>
+</div>

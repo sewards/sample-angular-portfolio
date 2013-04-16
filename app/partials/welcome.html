@@ -1,0 +1,106 @@
+<div id="wrapper" ng-cloak class="ng-cloak">
+    <div class="row-fluid">
+        <!-- start: Main -->
+        <div class="posts span8">
+            <!-- start: Main Item -->
+            <div class="post first" ng-class="{hidden:!aboutLoaded}">
+                <h3>{{about.profileLabel}}</h3>
+                <div>
+                    <img class="profileImgSmall" src="{{about.profileImg}}" />
+                    <div ng-bind-html-unsafe="about.profileBody"></div>
+                </div>
+                <div class="moreLink ">
+                    <a href="/about">Full Profile...</a>
+                </div>
+            </div>
+            <!-- end: Main Item -->
+            <!-- start: Main Item -->
+            <div class="post" ng-class="{hidden:!portfolioLoaded}">
+                <div class="title"><h2>Recent Projects</h2></div>
+                <div ng-repeat="portfolioItem in portfolio | orderBy:orderProp:true | limitTo:2">
+                    <div class="picture welcome-image">
+                        <a href="#" ng-click="detail(portfolioItem); $event.preventDefault();"><img ng-src="/app/img/work/{{portfolioItem.image[0]}}_l.jpg" alt="" /></a>
+                    </div>
+                    <div class="info">
+                        <img class="post-logo" ng-src="{{portfolioItem | formatLogo}}" >
+                    </div>
+                    <div class="post-content">
+                        <div class="post-title">
+                            <a href="#" ng-click="detail(portfolioItem); $event.preventDefault();"><h2>{{portfolioItem.title}}</h2></a>
+                        </div>
+                        <div class="meta row-fluid post-meta">
+                            <div>
+                                <div><i class="fa-icon-user"></i>  {{portfolioItem.client}}</div>
+                                <div><i class="fa-icon-calendar"></i>  {{portfolioItem | formatDate}}</div>
+                            </div>
+                            <ul>
+                                <li class="awardItem" ng-repeat="award in portfolioItem.awards ">
+                                    <div><i class="fa-icon-star"></i>{{award}}</div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="post-description">
+                            <div ng-bind-html-unsafe="portfolioItem.body"></div>
+                        </div>
+                        <hr ng-class="{hidden:portfolioItem.end!='present'}"  />
+                    </div>
+                </div>
+                <div class="moreLink">
+                    <a class="post-entry" href="/portfolio">Full Portfolio...</a>
+                </div>
+            </div>
+            <!-- end: Main Item -->
+            <!-- start: Main Item -->
+            <div class="post last" ng-class="{hidden:!workLoaded}">
+                <div class="title"><h2>Recent Work</h2></div>
+                <!-- start: Work History List -->
+                <ul class="workList">
+                    <li ng-repeat="item in work | filter:query | orderBy:orderProp:true | limitTo:2" >
+                        <img class="img-polaroid workLogo" ng-src="{{item.logo}}"></image>
+                        <p><a href="{{item.clientLink}}" target="_blank"><strong>{{item.client}}</strong></a></p>
+                        <p>{{item | formatDate}}</p>
+                        <p>{{item.role}}</p>
+                        <p>{{item.type}}</p>
+                        <div class="workBody" ng-bind-html-unsafe="item.body"></div>
+                        <hr ng-class="{hidden:item.end!='present'}"  />
+                    </li>
+                </ul>
+                <!-- end: Work History List -->
+                <div class="moreLink">
+                    <a class="post-entry" href="/about">Full Work History...</a>
+                </div>
+            </div>
+        </div>
+        <!-- end: Main -->
+        <!-- start: Sidebar -->
+        <div class="sidebar span4 hidden-phone">
+            <!-- start: Video Widget -->
+            <div class="widget first"  ng-class="{hidden:!portfolioLoaded}">
+                <div class="title"><h3>Portfolio Videos</h3></div>
+                <p></p>
+                <div class="flex-video widescreen">
+                    <iframe ng-src="{{videoItem.video}}" width="480" height="256" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+                </div>
+                <a href="#" ng-click="getDetail(videoItem); $event.preventDefault();"><h3>{{videoItem.title}}</h3></a>
+                <div><i class="fa-icon-user"></i>  {{videoItem.client}}</div>
+                <div><i class="fa-icon-calendar"></i>  {{videoItem | formatDate}}</div>
+                <ul class="pagination">
+                    <a ng-repeat="video in videos" ng-click="selectVideo(video); $event.preventDefault();" href="#"><li ng-class="{current:video.selected}"></li></a>
+                </ul>
+            </div>
+            <!-- end: Video Widget -->
+            <!-- start: Archive Widget -->
+            <div class="widget last">
+                <div class="title"><h3>{{about.previousLabel}}</h3></div>
+                <div ng-bind-html-unsafe="about.previousBody"></div>
+                <div class="previous-image">
+                    <a href="{{about.previousUrl}}" target="_blank"><img ng-src="{{about.previousImg}}" alt="" /></a>
+                </div>
+            </div>
+            <!-- end: Archive Widget -->
+        </div>
+        <!-- end: Sidebar -->
+    </div>
+</div>
+
+

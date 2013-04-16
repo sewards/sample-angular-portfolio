@@ -1,0 +1,100 @@
+<!-- start: Wrapper -->
+<div id="wrapper"  ng-cloak class="full ng-cloak">
+    <!-- start: Row -->
+    <div class="row-fluid">
+        <!-- start: Portfolio Form -->
+        <div class="span9">
+            <form class="form-horizontal" ng-submit="submit()">
+                <fieldset>
+                    <legend>{{legend}}</legend>
+                    <div class="control-group">
+                        <label class="control-label" for="image-input">Image(s)</label>
+                        <div class="controls">
+                            <input type="text" id="image-input" class="input-xxlarge" name="image" ng-model="currentPortfolio.image" ng-list required>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="title-input">Project</label>
+                        <div class="controls">
+                            <input type="text" id="title-input" class="input-xxlarge" name="title" ng-model="currentPortfolio.title" required>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="start-input">Start Date</label>
+                        <div class="controls">
+                            <input type="text" id="start-input" class="input-xxlarge" name="start" ng-model="currentPortfolio.start" required>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="end-input">End Date</label>
+                        <div class="controls">
+                            <input type="text" id="end-input" class="input-xxlarge" name="end" ng-model="currentPortfolio.end" required>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="client-input">Client</label>
+                        <div class="controls">
+                            <input type="text" id="client-input" class="input-xxlarge" name="client" ng-model="currentPortfolio.client" required>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="clientLink-input">Client Link</label>
+                        <div class="controls">
+                            <input type="text" id="clientLink-input" class="input-xxlarge" name="clientLink" ng-model="currentPortfolio.clientLink">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="role-input">Role</label>
+                        <div class="controls">
+                            <input type="text" id="role-input" class="input-xlarge" name="role"  ng-model="currentPortfolio.role" required>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="tech-input">Technology</label>
+                        <div class="controls">
+                            <input type="text" id="tech-input" class="input-xxlarge" name="tech" ng-model="currentPortfolio.tech" required>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="tags-input">Tags</label>
+                        <div class="controls">
+                            <input type="text" id="tags-input" class="input-xxlarge" name="tags" ng-model="currentPortfolio.tags">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="video-input">Video</label>
+                        <div class="controls">
+                            <input type="text" id="video-input" class="input-xxlarge" name="video" ng-model="currentPortfolio.video">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="awards-input">Awards</label>
+                        <div class="controls">
+                            <input type="text" id="awards-input" class="input-xxlarge" name="awards" ng-model="currentPortfolio.awards" ng-list>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="summary-input">Summary</label>
+                        <div class="controls">
+                            <textarea id="summary-input"  rows="5" class="input-xxlarge" name="body" name="summary" ng-model="currentPortfolio.summary" required></textarea>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="body-input">Description</label>
+                        <div class="controls">
+                            <textarea id="body-input"  rows="8" class="input-xxlarge" name="body" name="body" ng-model="currentPortfolio.body" required></textarea>
+                        </div>
+                    </div>
+                </fieldset>
+                <div>
+                    <button id="submit-button" type="submit" class="btn btn-primary">{{submitLabel}}</button>
+                    <button id="cancel-button" ng-click="cancel()" class="btn btn-warning">Cancel</button>
+                </div>
+            </form>
+        </div>
+        <!-- end: Portfolio Form -->
+    </div>
+</div>
+
+
+

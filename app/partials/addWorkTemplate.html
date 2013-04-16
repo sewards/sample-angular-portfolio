@@ -1,0 +1,74 @@
+<!-- start: Wrapper -->
+<div id="wrapper"  ng-cloak class="full ng-cloak">
+    <!-- start: Row -->
+    <div class="row-fluid">
+        <!-- start: Work Form -->
+        <div class="span9">
+            <form class="form-horizontal" ng-submit="submit()">
+                <fieldset>
+                    <legend>{{legend}}</legend>
+                    <div class="control-group">
+                        <label class="control-label" for="logo-input">Logo</label>
+                        <div class="controls">
+                            <input type="text" id="logo-input" class="input-xxlarge" name="logo" ng-model="currentWork.logo" required>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="start-input">Start Date</label>
+                        <div class="controls">
+                            <input type="text" id="start-input" class="input-xxlarge" name="start" ng-model="currentWork.start" required>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="end-input">End Date</label>
+                        <div class="controls">
+                            <input type="text" id="end-input" class="input-xxlarge" name="end" ng-model="currentWork.end" required>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="client-input">Client</label>
+                        <div class="controls">
+                            <input type="text" id="client-input" class="input-xxlarge" name="client" ng-model="currentWork.client" required>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="clientLink-input">Client Link</label>
+                        <div class="controls">
+                            <input type="text" id="clientLink-input" class="input-xxlarge" name="clientLink" ng-model="currentWork.clientLink">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="role-input">Role</label>
+                        <div class="controls">
+                            <input type="text" id="role-input" class="input-xxlarge" name="role"  ng-model="currentWork.role" required>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="type-input">Type</label>
+                        <div class="controls">
+                            <input type="text" id="type-input" class="input-xxlarge" name="type" ng-model="currentWork.type" required>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="summary-input">Summary</label>
+                        <div class="controls">
+                            <textarea id="summary-input"  rows="5" class="input-xxlarge" name="summary" name="summary" ng-model="currentWork.summary" required></textarea>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="body-input">Description</label>
+                        <div class="controls">
+                            <textarea id="body-input"  rows="8" class="input-xxlarge" name="body" name="body" ng-model="currentWork.body" required></textarea>
+                        </div>
+                    </div>
+                </fieldset>
+                <div>
+                    <button id="submit-button" type="submit" class="btn btn-primary">{{submitLabel}}</button>
+                    <button id="cancel-button" ng-click="cancel()" class="btn btn-warning">Cancel</button>
+                </div>
+            </form>
+        </div>
+        <!-- end: Work Form -->
+    </div>
+</div>
+

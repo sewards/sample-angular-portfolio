@@ -1,0 +1,36 @@
+<div>
+    <!-- start: Filters -->
+    <div id="filters">
+        <ul class="option-set">
+            <li ng-repeat="item in filters ">
+                <a href="#" ng-click="setFilter(item); $event.preventDefault();" ng-class="{selected:item.selected}">{{item.label}}</a>
+            </li>
+        </ul>
+    </div>
+    <!-- end: Filters -->
+    <!-- start: Portfolio Wall -->
+    <div id="wall" class="row-fluid">
+        <div ng-repeat="item in portfolio | orderBy:orderProp:true" class="span3 item {{item.tags}} ">
+            <a class="image" href="#" ng-click="detail(item); $event.preventDefault();"><h3>{{item.title}}</h3></a>
+            <div class="picture">
+                <a class="image" href="#" ng-click="detail(item); $event.preventDefault();" title="Title"><img  src="app/img/work/{{item.image[0]}}_m.jpg" alt=""/></a>
+                <div class="description">
+                    <p>
+                        {{item.summary}}
+                    </p>
+                    <div class="meta row-fluid">
+                        <div><i class="fa-icon-user"></i>  {{item.client}}</div>
+                        <div><i class="fa-icon-calendar"></i>  {{item | formatDate}}</div>
+                        <ul>
+                            <li class="awardItem" ng-repeat="award in item.awards ">
+                                <div><i class="fa-icon-star"></i>{{award}}</div>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end: Portfolio Wall -->
+</div>
